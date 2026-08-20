@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AstraMindAI Memory Schema",
+  "type": "object",
+  "properties": {
+    "userId": { "type": "string" },
+    "sessionId": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "type": {
+      "type": "string",
+      "enum": ["conversation", "preference", "system", "task"]
+    },
+    "content": { "type": "string" },
+    "metadata": { "type": "object", "additionalProperties": true },
+    "importance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "required": ["userId", "sessionId", "timestamp", "type", "content"]
+}
