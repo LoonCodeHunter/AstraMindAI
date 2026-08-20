@@ -1,0 +1,6 @@
+{
+  "port": 4000,
+  "baseUrl": "https://staging-api.astramind.ai",
+  "mlServiceUrl": "https://staging-ml.astramind.ai",
+  "workerQueueUrl": "redis://staging-redis.internal:6379"
+}
