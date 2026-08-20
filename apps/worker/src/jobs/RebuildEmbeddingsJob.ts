@@ -1,3 +1,4 @@
-export async function runEmailDigest() {
-  // placeholder: send email digests
+export async function runRebuildEmbeddings() {
+  // placeholder: rebuild embeddings
 }
+
