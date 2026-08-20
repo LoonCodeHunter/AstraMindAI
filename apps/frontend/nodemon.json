@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,tsx,js,jsx",
+  "exec": "npm run dev",
+  "delay": "200"
+}
