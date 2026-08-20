@@ -48,46 +48,36 @@ spec:
       value: "true"
       effect: NoSchedule
 ```
-Security Baseline
+## Security Baseline
+
 Image Policy:
+- Only signed images from trusted registries.
 
-Only signed images from trusted registries.
+### Runtime Security:
+- Mandatory seccomp profiles.
+- Read-only root filesystem for inference workloads.
 
-Runtime Security:
+### Access Control:
+- No SSH access by default.
+- Access via break-glass procedure only.
 
-Mandatory seccomp profiles.
+## Observability
 
-Read-only root filesystem for inference workloads.
+### Metrics:
+-GPU utilization, memory, temperature, ECC errors.
 
-Access Control:
+### Logs:
+- Driver logs shipped to central logging.
 
-No SSH access by default.
+### Tracing:
+-Inference pipeline spans tagged with gpu-node-id.
 
-Access via break-glass procedure only.
-
-Observability
-Metrics:
-
-GPU utilization, memory, temperature, ECC errors.
-
-Logs:
-
-Driver logs shipped to central logging.
-
-Tracing:
-
-Inference pipeline spans tagged with gpu-node-id.
-
-Capacity Planning
-Target 70–80% sustained GPU utilization.
-
-Auto-scaling based on:
-
-Queue depth (inference requests).
-
-Latency SLOs.
-
-GPU memory pressure.
+## Capacity Planning
+- Target 70–80% sustained GPU utilization.
+### Auto-scaling based on:
+-Queue depth (inference requests).
+-Latency SLOs.
+-GPU memory pressure.
 
 
 #### `gpu-nodepool.yaml`
