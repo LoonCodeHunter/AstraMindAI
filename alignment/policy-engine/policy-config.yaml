@@ -1,0 +1,9 @@
+engine:
+  mode: strict
+  logDecisions: true
+
+policies:
+  - id: safety-core
+    enabled: true
+  - id: privacy-core
+    enabled: true
