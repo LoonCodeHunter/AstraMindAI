@@ -3,7 +3,16 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "esnext",
-    "target": "ES2022"
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
+      "@context/*": ["context/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
   "include": ["src"]
 }
