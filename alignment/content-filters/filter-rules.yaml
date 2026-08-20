@@ -1,0 +1,12 @@
+rules:
+  - id: toxicity
+    description: Block overtly toxic or abusive language.
+    severity: high
+
+  - id: self-harm
+    description: Block self-harm encouragement or instructions.
+    severity: critical
+
+  - id: illegal-activity
+    description: Block guidance for illegal activities.
+    severity: critical
