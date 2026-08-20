@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@backend/*": ["apps/backend/src/*"],
+      "@frontend/*": ["apps/frontend/src/*"]
+    }
+  },
+  "include": ["apps", "common", "env.d.ts"]
+}
