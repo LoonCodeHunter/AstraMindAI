@@ -1,0 +1,16 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #05060a;
+  color: #f5f5f5;
+}
+
+.sidebar {
+  background: #0b0d12;
+}
+
+.header {
+  background: #0b0d12;
+}
