@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    env_file:
+      - .env.development
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+      - redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+    env_file:
+      - .env.development
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: ./apps/ml-service/Dockerfile
+    env_file:
+      - .env.development
+    ports:
+      - "5000:5000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: ./apps/worker/Dockerfile
+    env_file:
+      - .env.development
+    depends_on:
+      - redis
+      - backend
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: astramindai_dev
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_password
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
