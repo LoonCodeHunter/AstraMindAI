@@ -1,0 +1,5 @@
+{
+  "toxicityThreshold": 0.8,
+  "blockOnToxic": true,
+  "logSafetyEvents": true
+}

@@ -1,0 +1,9 @@
+{
+  "chat": {
+    "defaultModel": "astramind-v2",
+    "fallbackModel": "astramind-v1"
+  },
+  "summarization": {
+    "defaultModel": "astramind-summarizer-v1"
+  }
+}

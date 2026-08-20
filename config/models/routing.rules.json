@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "intent": "chat",
+      "target": "chat.defaultModel"
+    },
+    {
+      "intent": "summarize",
+      "target": "summarization.defaultModel"
+    }
+  ]
+}

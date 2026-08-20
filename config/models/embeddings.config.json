@@ -1,0 +1,4 @@
+{
+  "defaultModel": "astramind-embed-v1",
+  "maxTokens": 8192
+}

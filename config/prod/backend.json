@@ -1,0 +1,6 @@
+{
+  "port": 4000,
+  "baseUrl": "https://api.astramind.ai",
+  "mlServiceUrl": "https://ml.astramind.ai",
+  "workerQueueUrl": "redis://redis.internal:6379"
+}

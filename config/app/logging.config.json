@@ -1,0 +1,6 @@
+{
+  "level": "info",
+  "json": true,
+  "redactFields": ["password", "token", "authorization"],
+  "destinations": ["stdout"]
+}

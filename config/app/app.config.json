@@ -1,0 +1,10 @@
+{
+  "name": "AstraMindAI",
+  "version": "1.0.0",
+  "defaultLocale": "en-GB",
+  "supportedLocales": ["en-GB"],
+  "featureFlags": {
+    "multiAgent": true,
+    "advancedLogging": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "csp": "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'",
+  "referrerPolicy": "no-referrer",
+  "hsts": {
+    "enabled": true,
+    "maxAgeSeconds": 31536000,
+    "includeSubDomains": true
+  }
+}
