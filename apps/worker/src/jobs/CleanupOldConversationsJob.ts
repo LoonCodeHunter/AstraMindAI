@@ -1,3 +1,3 @@
-export async function runAnalyticsAggregation() {
-  // placeholder: aggregate analytics
+export async function runCleanupOldConversations() {
+  // placeholder: cleanup old conversations
 }
