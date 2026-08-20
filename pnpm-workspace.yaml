@@ -1,0 +1,6 @@
+packages:
+  - "apps/backend"
+  - "apps/frontend"
+  - "apps/ml-service"
+  - "apps/worker"
+  - "common"
