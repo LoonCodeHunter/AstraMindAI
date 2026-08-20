@@ -4,6 +4,9 @@ version = "1.0.0"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi",
-  "uvicorn",
-  "pydantic"
+  "uvicorn[standard]",
+  "pydantic",
+  "numpy",
+  "torch",
+  "scikit-learn"
 ]
