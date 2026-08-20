@@ -1,0 +1,19 @@
+# Ignore dev-only files from published packages
+node_modules
+coverage
+.vitest
+.turbo
+.cache
+.tmp
+
+# Configs not needed in package
+.dockerignore
+.editorconfig
+.gitignore
+.npmignore
+.env*
+*.log
+
+# Local tooling
+.vscode
+.idea
