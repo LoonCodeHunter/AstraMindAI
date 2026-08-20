@@ -1,7 +1,18 @@
-FROM node:22-alpine
+FROM node:22-alpine AS deps
 WORKDIR /app
-COPY package.json tsconfig.json vite.config.ts ./
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
 RUN npm install
-COPY src ./src
-COPY public ./public
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=build /app/dist ./dist
+COPY package.json ./
+RUN npm install --only=production
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
