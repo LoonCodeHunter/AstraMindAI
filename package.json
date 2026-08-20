@@ -1,0 +1,24 @@
+{
+  "name": "astramindai-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "eslint": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "prettier": "^3.2.0",
+    "turbo": "^2.0.0",
+    "vitest": "^2.0.0",
+    "vite": "^5.0.0",
+    "unused-imports": "^3.0.0"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
