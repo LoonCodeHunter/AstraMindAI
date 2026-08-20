@@ -1,36 +1,37 @@
-# ============================
-# AstraMindAI Auto Sync Script
-# ============================
+# ==========================================
+# AstraMindAI Two-Way Auto Sync (Windows)
+# ==========================================
 
-$RepoDir = "$HOME\AstraMindAI"
+$RepoDir = "C:\Users\jesse\HyperbyteInnovations\Projects\AstraMindAI"
 $Branch = "main"
 $LogFile = "$RepoDir\.sync-log.txt"
 
-Write-Output "=== AstraMindAI Auto Sync ===" | Tee-Object -FilePath $LogFile -Append
-Write-Output "Timestamp: $(Get-Date)" | Tee-Object -FilePath $LogFile -Append
+# Timestamp
+$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+Add-Content -Path $LogFile -Value "`n=== Sync Run: $timestamp ==="
 
-# 1. Move into repo
+# Move into repo
 Set-Location $RepoDir
 
-# 2. Save local changes
-Write-Output "[1] Stashing local changes..." | Tee-Object -FilePath $LogFile -Append
-git stash -u
+# Step 1 — Stash local changes
+Add-Content -Path $LogFile -Value "[1] Stashing local changes..."
+git stash -u | Out-Null
 
-# 3. Pull latest from GitHub
-Write-Output "[2] Pulling latest changes from GitHub..." | Tee-Object -FilePath $LogFile -Append
-git pull origin $Branch --rebase
+# Step 2 — Pull latest from GitHub
+Add-Content -Path $LogFile -Value "[2] Pulling from GitHub..."
+git pull origin $Branch --rebase | Out-Null
 
-# 4. Reapply local changes
-Write-Output "[3] Applying stashed changes..." | Tee-Object -FilePath $LogFile -Append
-git stash pop
+# Step 3 — Reapply local changes
+Add-Content -Path $LogFile -Value "[3] Applying stashed changes..."
+git stash pop | Out-Null
 
-# 5. Auto-resolve conflicts
-Write-Output "[4] Auto-resolving conflicts..." | Tee-Object -FilePath $LogFile -Append
+# Step 4 — Auto-add and commit
+Add-Content -Path $LogFile -Value "[4] Committing changes..."
 git add .
-git commit -m "auto-sync: $(Get-Date)" | Out-Null
+git commit -m "auto-sync: $timestamp" | Out-Null
 
-# 6. Push back to GitHub
-Write-Output "[5] Pushing updates to GitHub..." | Tee-Object -FilePath $LogFile -Append
-git push origin $Branch
+# Step 5 — Push back to GitHub
+Add-Content -Path $LogFile -Value "[5] Pushing to GitHub..."
+git push origin $Branch | Out-Null
 
-Write-Output "[6] Sync complete." | Tee-Object -FilePath $LogFile -Append
+Add-Content -Path $LogFile -Value "[6] Sync complete."
