@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+  title: AstraMindAI API (v2)
+  version: 2.0.0
+  description: Modern, typed, multi-agent API.
+
+paths:
+  /v2/health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+
+  /v2/chat:
+    post:
+      summary: Multi-agent chat endpoint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                sessionId:
+                  type: string
+      responses:
+        '200':
+          description: Chat response with metadata
