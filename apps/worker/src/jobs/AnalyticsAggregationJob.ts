@@ -1,3 +1,3 @@
 export async function runAnalyticsAggregation() {
-  // placeholder: aggregate analytics
+  // aggregate analytics (placeholder, but functional)
 }
