@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  backend:
+    image: astramindai/backend:latest
+    env_file:
+      - .env.production
+    restart: always
+
+  frontend:
+    image: astramindai/frontend:latest
+    env_file:
+      - .env.production
+    restart: always
+
+  ml-service:
+    image: astramindai/ml-service:latest
+    env_file:
+      - .env.production
+    restart: always
+
+  worker:
+    image: astramindai/worker:latest
+    env_file:
+      - .env.production
+    restart: always
