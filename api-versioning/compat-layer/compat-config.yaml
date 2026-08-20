@@ -1,0 +1,15 @@
+compatLayer:
+  enabled: true
+  defaultVersion: v2
+  supportedVersions:
+    - v1
+    - v2
+
+behaviors:
+  rewriteDeprecatedFields: true
+  autoUpgradeRequests: true
+  warnOnLegacyUsage: true
+
+logging:
+  level: info
+  includeVersionInfo: true
