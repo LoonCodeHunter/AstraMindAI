@@ -64,20 +64,20 @@ Image Policy:
 ## Observability
 
 ### Metrics:
--GPU utilization, memory, temperature, ECC errors.
+- GPU utilization, memory, temperature, ECC errors.
 
 ### Logs:
 - Driver logs shipped to central logging.
 
 ### Tracing:
--Inference pipeline spans tagged with gpu-node-id.
+- Inference pipeline spans tagged with gpu-node-id.
 
 ## Capacity Planning
 - Target 70–80% sustained GPU utilization.
 ### Auto-scaling based on:
--Queue depth (inference requests).
--Latency SLOs.
--GPU memory pressure.
+- Queue depth (inference requests).
+- Latency SLOs.
+- GPU memory pressure.
 
 
 #### `gpu-nodepool.yaml`
