@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-gpu-nodepool-controller
+  labels:
+    app: astramind-gpu-nodepool
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: astramind-gpu-nodepool
+  template:
+    metadata:
+      labels:
+        app: astramind-gpu-nodepool
+    spec:
+      serviceAccountName: gpu-nodepool-sa
+      containers:
+        - name: gpu-nodepool-operator
+          image: registry.astramind.ai/platform/gpu-nodepool-operator:stable
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+          env:
+            - name: GPU_NODE_LABEL
+              value: "astramind.ai/node-type=gpu"
+            - name: TARGET_UTILIZATION
+              value: "0.75"
+            - name: MAX_NODES
+              value: "50"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
