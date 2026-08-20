@@ -1,0 +1,38 @@
+# Ignore node modules and build artifacts
+node_modules
+dist
+build
+coverage
+.cache
+.tmp
+
+# Logs and temp files
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor and OS junk
+.DS_Store
+Thumbs.db
+
+# Git and VCS
+.git
+.gitignore
+
+# Local environment and secrets
+.env*
+.env.local*
+.env.development.local
+.env.production.local
+.env.staging.local
+
+# Test outputs
+jest-results.json
+coverage/
+.vitest
+
+# IDE configs
+.vscode
+.idea
