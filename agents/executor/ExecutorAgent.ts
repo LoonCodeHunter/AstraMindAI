@@ -1,64 +1,31 @@
-export type ExecutionContext = {
-  userId: string;
-  sessionId: string;
-  taskId: string;
-  code: string;
-  language: 'typescript' | 'javascript' | 'python' | 'bash';
-  timeoutMs?: number;
-};
+import {
+  ExecutionContext,
+  ExecutionResult,
+  ExecutionStrategy,
+  defaultExecutionStrategies,
+} from './execution-strategies';
 
-export type ExecutionResult = {
-  success: boolean;
-  output: string;
-  error?: string;
-  durationMs: number;
-};
+export class ExecutorAgent {
+  private strategies: Map<string, ExecutionStrategy>;
 
-export interface ExecutionStrategy {
-  name: string;
-  execute(context: ExecutionContext): Promise<ExecutionResult>;
-}
+  constructor(strategies: ExecutionStrategy[] = defaultExecutionStrategies) {
+    this.strategies = new Map(strategies.map((s) => [s.name, s]));
+  }
 
-export class SandboxExecutionStrategy implements ExecutionStrategy {
-  name = 'sandbox';
+  registerStrategy(strategy: ExecutionStrategy): void {
+    this.strategies.set(strategy.name, strategy);
+  }
 
-  async execute(context: ExecutionContext): Promise<ExecutionResult> {
-    const start = performance.now();
+  async execute(
+    context: ExecutionContext,
+    strategyName: string = 'sandbox',
+  ): Promise<ExecutionResult> {
+    const strategy = this.strategies.get(strategyName);
 
-    // In a real system, this would call out to a secure sandbox service.
-    // Here we just simulate execution.
-    try {
-      const simulatedOutput = `Executed ${context.language} code for task ${context.taskId}`;
-      return {
-        success: true,
-        output: simulatedOutput,
-        durationMs: performance.now() - start,
-      };
-    } catch (err: any) {
-      return {
-        success: false,
-        output: '',
-        error: err?.message ?? 'Unknown execution error',
-        durationMs: performance.now() - start,
-      };
+    if (!strategy) {
+      throw new Error(`Execution strategy "${strategyName}" not found`);
     }
+
+    return strategy.execute(context);
   }
 }
-
-export class DryRunExecutionStrategy implements ExecutionStrategy {
-  name = 'dry-run';
-
-  async execute(context: ExecutionContext): Promise<ExecutionResult> {
-    const start = performance.now();
-    return {
-      success: true,
-      output: `Dry-run: validated code for task ${context.taskId}`,
-      durationMs: performance.now() - start,
-    };
-  }
-}
-
-export const defaultExecutionStrategies: ExecutionStrategy[] = [
-  new SandboxExecutionStrategy(),
-  new DryRunExecutionStrategy(),
-];
