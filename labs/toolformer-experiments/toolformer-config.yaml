@@ -1,0 +1,7 @@
+model: astramind-v2
+tools:
+  - web-search
+  - code-edit
+training:
+  epochs: 3
+  batch_size: 16
