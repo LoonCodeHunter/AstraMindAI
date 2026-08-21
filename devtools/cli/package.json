@@ -1,0 +1,16 @@
+{
+  "name": "astramind-cli",
+  "version": "1.0.0",
+  "bin": {
+    "astramind": "astra-cli.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
