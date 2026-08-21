@@ -1,0 +1,6 @@
+CREATE TABLE usage_metrics (
+  id TEXT PRIMARY KEY,
+  metric TEXT NOT NULL,
+  value DOUBLE PRECISION NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
