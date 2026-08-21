@@ -1,0 +1,3 @@
+chaos:
+  enabled: true
+  frequency: "daily"
