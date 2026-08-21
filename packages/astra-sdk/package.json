@@ -1,0 +1,9 @@
+{
+  "name": "astra-sdk",
+  "version": "1.0.0",
+  "main": "dist/client.js",
+  "types": "dist/client.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}
