@@ -1,0 +1,9 @@
+environment: prod
+backend:
+  replicas: 4
+frontend:
+  replicas: 4
+mlService:
+  replicas: 3
+worker:
+  replicas: 2
