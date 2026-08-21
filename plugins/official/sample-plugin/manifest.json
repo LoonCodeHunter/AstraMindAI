@@ -1,0 +1,6 @@
+{
+  "name": "sample-plugin",
+  "version": "1.0.0",
+  "description": "Sample plugin for AstraMindAI",
+  "entry": "index.js"
+}
