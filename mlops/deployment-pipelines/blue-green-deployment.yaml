@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-ml-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: astramind-ml
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: astramind-ml
+        version: blue
+    spec:
+      containers:
+        - name: ml-service
+          image: astramind/ml-service:blue
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-ml-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: astramind-ml
+      version: green
+  template:
+    metadata:
+      labels:
+        app: astramind-ml
+        version: green
+    spec:
+      containers:
+        - name: ml-service
+          image: astramind/ml-service:green
