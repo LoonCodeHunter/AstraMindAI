@@ -1,0 +1,5 @@
+{
+  "admin": ["manage_users", "view_billing", "configure_models"],
+  "developer": ["use_api", "view_logs"],
+  "viewer": ["view_dashboard"]
+}
