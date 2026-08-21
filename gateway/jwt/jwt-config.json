@@ -1,0 +1,6 @@
+{
+  "issuer": "astramind.ai",
+  "audience": "astramind-clients",
+  "alg": "RS256",
+  "jwksUrl": "https://auth.astramind.ai/.well-known/jwks.json"
+}

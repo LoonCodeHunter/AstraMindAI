@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "key": { "type": "string" },
+    "tenantId": { "type": "string" },
+    "scopes": { "type": "array", "items": { "type": "string" } },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["key", "tenantId", "scopes", "createdAt"]
+}

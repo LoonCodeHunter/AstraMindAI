@@ -1,0 +1,21 @@
+static_resources:
+  listeners:
+    - name: main_listener
+      address:
+        socket_address:
+          address: 0.0.0.0
+          port_value: 8080
+      filter_chains:
+        - filters:
+            - name: envoy.filters.network.http_connection_manager
+              typed_config:
+                route_config:
+                  virtual_hosts:
+                    - name: backend
+                      domains: ["*"]
+                      routes:
+                        - match: { prefix: "/v1" }
+                          route: { cluster: backend_v1 }
+                        - match: { prefix: "/v2" }
+                          route: { cluster: backend_v2 }
+
