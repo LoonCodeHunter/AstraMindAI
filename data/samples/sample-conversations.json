@@ -1,0 +1,10 @@
+[
+  {
+    "id": "conv-1",
+    "userId": "user-1",
+    "messages": [
+      { "role": "user", "content": "Hello, what can you do?" },
+      { "role": "assistant", "content": "I can help you build AI apps." }
+    ]
+  }
+]
