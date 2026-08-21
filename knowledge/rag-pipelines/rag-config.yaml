@@ -1,0 +1,6 @@
+chunker: semantic
+embedder: astramind-embed-v1
+retriever:
+  top_k: 5
+reranker: astramind-rerank-v1
+generator: astramind-v2

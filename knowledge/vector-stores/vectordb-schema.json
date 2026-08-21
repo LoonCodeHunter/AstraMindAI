@@ -1,0 +1,7 @@
+{
+  "fields": {
+    "id": "string",
+    "vector": "float[]",
+    "metadata": "object"
+  }
+}
