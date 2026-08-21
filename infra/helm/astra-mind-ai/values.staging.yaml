@@ -1,0 +1,9 @@
+environment: staging
+backend:
+  replicas: 2
+frontend:
+  replicas: 2
+mlService:
+  replicas: 2
+worker:
+  replicas: 1

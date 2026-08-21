@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-worker
+spec:
+  replicas: {{ .Values.worker.replicas }}
+  selector:
+    matchLabels:
+      app: astramind-worker
+  template:
+    metadata:
+      labels:
+        app: astramind-worker
+    spec:
+      containers:
+        - name: worker
+          image: "{{ .Values.worker.image }}"

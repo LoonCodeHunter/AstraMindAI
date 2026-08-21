@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-ml-service
+spec:
+  replicas: {{ .Values.mlService.replicas }}
+  selector:
+    matchLabels:
+      app: astramind-ml-service
+  template:
+    metadata:
+      labels:
+        app: astramind-ml-service
+    spec:
+      containers:
+        - name: ml-service
+          image: "{{ .Values.mlService.image }}"
+          ports:
+            - containerPort: 8000
