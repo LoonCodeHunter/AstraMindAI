@@ -1,0 +1,12 @@
+features:
+  - name: user_message_length
+    type: numeric
+    description: Length of user message in tokens
+
+  - name: toxicity_score
+    type: numeric
+    description: Output of toxicity detector
+
+  - name: intent_label
+    type: categorical
+    description: Predicted intent category

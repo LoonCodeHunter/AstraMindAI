@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astramind-ml-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: astramind-ml
+      track: canary
+  template:
+    metadata:
+      labels:
+        app: astramind-ml
+        track: canary
+    spec:
+      containers:
+        - name: ml-service
+          image: astramind/ml-service:canary

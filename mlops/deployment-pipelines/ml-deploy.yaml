@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-deploy-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: deploy
+          image: astramind/deployer:latest
+          command: ["deploy-ml-models"]
+      restartPolicy: Never
