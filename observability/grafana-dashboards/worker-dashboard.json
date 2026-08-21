@@ -1,0 +1,20 @@
+{
+  "title": "AstraMind Worker Dashboard",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Job Queue Depth",
+      "targets": [{ "expr": "worker_queue_depth" }]
+    },
+    {
+      "type": "graph",
+      "title": "Job Processing Time",
+      "targets": [{ "expr": "worker_job_latency_p95" }]
+    },
+    {
+      "type": "graph",
+      "title": "Job Failures",
+      "targets": [{ "expr": "worker_job_failures_total" }]
+    }
+  ]
+}

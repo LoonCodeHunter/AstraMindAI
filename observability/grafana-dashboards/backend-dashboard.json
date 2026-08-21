@@ -1,0 +1,20 @@
+{
+  "title": "AstraMind Backend Dashboard",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Request Latency (P95)",
+      "targets": [{ "expr": "backend_request_latency_p95" }]
+    },
+    {
+      "type": "graph",
+      "title": "Request Rate",
+      "targets": [{ "expr": "backend_requests_total" }]
+    },
+    {
+      "type": "graph",
+      "title": "Error Rate",
+      "targets": [{ "expr": "backend_errors_total" }]
+    }
+  ]
+}

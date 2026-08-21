@@ -1,0 +1,20 @@
+{
+  "title": "AstraMind ML Service Dashboard",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Inference Latency (P95)",
+      "targets": [{ "expr": "ml_inference_latency_p95" }]
+    },
+    {
+      "type": "graph",
+      "title": "Inference Volume",
+      "targets": [{ "expr": "ml_inference_total" }]
+    },
+    {
+      "type": "graph",
+      "title": "Model Load Time",
+      "targets": [{ "expr": "ml_model_load_seconds" }]
+    }
+  ]
+}

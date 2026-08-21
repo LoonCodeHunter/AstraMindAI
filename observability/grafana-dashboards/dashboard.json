@@ -1,0 +1,20 @@
+{
+  "title": "AstraMind System Overview",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Total Requests",
+      "targets": [{ "expr": "sum(backend_requests_total)" }]
+    },
+    {
+      "type": "stat",
+      "title": "ML Inference Count",
+      "targets": [{ "expr": "sum(ml_inference_total)" }]
+    },
+    {
+      "type": "graph",
+      "title": "System Latency",
+      "targets": [{ "expr": "system_latency_p95" }]
+    }
+  ]
+}
