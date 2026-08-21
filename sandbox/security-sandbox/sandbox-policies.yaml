@@ -1,0 +1,4 @@
+policies:
+  allowMockAuth: true
+  logRequests: true
+  blockExternalCalls: true

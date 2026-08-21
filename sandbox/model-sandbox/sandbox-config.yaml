@@ -1,0 +1,4 @@
+sandbox:
+  model: "sandbox-model"
+  maxTokens: 256
+  temperature: 0.2
