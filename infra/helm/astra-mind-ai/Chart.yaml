@@ -1,0 +1,4 @@
+apiVersion: v2
+name: astramind-ai
+description: AstraMindAI Application Chart
+version: 1.0.0

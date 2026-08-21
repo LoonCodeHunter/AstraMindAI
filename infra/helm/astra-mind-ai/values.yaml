@@ -1,0 +1,11 @@
+backend:
+  image: astramind/backend:latest
+
+frontend:
+  image: astramind/frontend:latest
+
+mlService:
+  image: astramind/ml-service:latest
+
+worker:
+  image: astramind/worker:latest

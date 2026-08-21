@@ -1,0 +1,15 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Staging
+        run: helm upgrade --install astramind-staging infra/helm/astra-mind-ai -f infra/helm/astra-mind-ai/values.staging.yaml

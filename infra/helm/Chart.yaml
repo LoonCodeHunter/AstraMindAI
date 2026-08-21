@@ -1,0 +1,4 @@
+apiVersion: v2
+name: astramind
+description: AstraMindAI Helm Chart
+version: 1.0.0

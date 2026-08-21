@@ -1,0 +1,15 @@
+name: Deploy Prod
+
+on:
+  push:
+    branches: [ prod ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Prod
+        run: helm upgrade --install astramind-prod infra/helm/astra-mind-ai -f infra/helm/astra-mind-ai/values.prod.yaml
