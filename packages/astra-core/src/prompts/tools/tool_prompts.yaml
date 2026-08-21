@@ -1,0 +1,5 @@
+tools:
+  - name: search
+    description: "Search external knowledge sources"
+  - name: code-edit
+    description: "Modify or refactor code snippets"
