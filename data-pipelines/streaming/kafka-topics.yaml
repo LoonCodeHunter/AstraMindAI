@@ -1,0 +1,7 @@
+topics:
+  - name: astramind-events
+    partitions: 6
+    replicationFactor: 3
+  - name: astramind-metrics
+    partitions: 3
+    replicationFactor: 3

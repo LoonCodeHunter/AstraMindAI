@@ -1,0 +1,12 @@
+source:
+  type: "raw"
+  path: "data/raw"
+target:
+  type: "processed"
+  path: "data/processed/training"
+transform:
+  steps:
+    - "normalize"
+    - "filter"
+    - "label"
+schedule: "0 2 * * *"
