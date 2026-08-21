@@ -1,0 +1,6 @@
+{
+  "free": { "dailyTokens": 5000 },
+  "developer": { "dailyTokens": 20000 },
+  "team": { "dailyTokens": 100000 },
+  "enterprise": { "dailyTokens": "unlimited" }
+}

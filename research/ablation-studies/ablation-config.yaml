@@ -1,0 +1,7 @@
+experiment: ablation-study
+models:
+  - astramind-v1
+  - astramind-v2
+metrics:
+  - accuracy
+  - latency

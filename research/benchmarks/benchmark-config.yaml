@@ -1,0 +1,6 @@
+benchmark:
+  dataset: eval.jsonl
+  metrics:
+    - accuracy
+    - f1
+    - latency
