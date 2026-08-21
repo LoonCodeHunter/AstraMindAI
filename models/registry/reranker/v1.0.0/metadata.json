@@ -1,0 +1,6 @@
+{
+  "model": "reranker",
+  "version": "1.0.0",
+  "description": "Reranker model",
+  "createdAt": "2026-01-01T00:00:00Z"
+}
