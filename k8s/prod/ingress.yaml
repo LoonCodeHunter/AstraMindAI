@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: astramind-prod-ingress
+  namespace: astramind
+spec:
+  tls:
+    - hosts:
+        - "api.astramind.ai"
+      secretName: astramind-tls
+  rules:
+    - host: "api.astramind.ai"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 4000
