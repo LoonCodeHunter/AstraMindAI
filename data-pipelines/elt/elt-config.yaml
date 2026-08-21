@@ -1,0 +1,9 @@
+source:
+  type: "object-storage"
+  bucket: "astramind-raw"
+target:
+  type: "warehouse"
+  name: "astramind_dw"
+transform:
+  enabled: false
+schedule: "0 * * * *"
