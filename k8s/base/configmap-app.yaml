@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: astramind-app-config
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  FEATURE_FLAGS: |
+    multiAgent=true
+    strictSafety=true

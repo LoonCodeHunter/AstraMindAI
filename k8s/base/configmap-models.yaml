@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: astramind-model-config
+data:
+  DEFAULT_CHAT_MODEL: "astramind-v2"
+  DEFAULT_EMBEDDINGS_MODEL: "astramind-embed-v1"
+  SAFETY_THRESHOLD: "0.8"
