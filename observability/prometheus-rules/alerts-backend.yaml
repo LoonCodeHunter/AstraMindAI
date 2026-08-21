@@ -1,0 +1,10 @@
+groups:
+  - name: backend-alerts
+    rules:
+      - alert: BackendHighErrorRate
+        expr: backend_errors_total > 50
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          description: "Backend error rate is high."

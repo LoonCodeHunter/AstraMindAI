@@ -1,0 +1,9 @@
+pipeline:
+  stages:
+    - parse
+    - enrich
+    - route
+  enrich:
+    add:
+      env: "${NODE_ENV}"
+      service: "astramind"

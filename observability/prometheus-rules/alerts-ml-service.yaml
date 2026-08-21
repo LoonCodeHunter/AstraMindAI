@@ -1,0 +1,10 @@
+groups:
+  - name: ml-service-alerts
+    rules:
+      - alert: MLInferenceLatencyHigh
+        expr: ml_inference_latency_p95 > 2
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          description: "ML inference latency is above threshold."

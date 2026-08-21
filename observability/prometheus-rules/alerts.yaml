@@ -1,0 +1,10 @@
+groups:
+  - name: system-alerts
+    rules:
+      - alert: SystemLatencyHigh
+        expr: system_latency_p95 > 1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          description: "System latency is above acceptable threshold."

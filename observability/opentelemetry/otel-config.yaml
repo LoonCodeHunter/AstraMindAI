@@ -1,0 +1,11 @@
+tracing:
+  enabled: true
+  sampler: parentbased_traceidratio
+  ratio: 0.1
+
+metrics:
+  enabled: true
+  interval: 10s
+
+logs:
+  enabled: true

@@ -1,0 +1,10 @@
+groups:
+  - name: worker-alerts
+    rules:
+      - alert: WorkerQueueDepthHigh
+        expr: worker_queue_depth > 100
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          description: "Worker queue depth is too high."
