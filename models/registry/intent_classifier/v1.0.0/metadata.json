@@ -1,0 +1,6 @@
+{
+  "model": "intent-classifier",
+  "version": "1.0.0",
+  "description": "Intent classifier model",
+  "createdAt": "2026-01-01T00:00:00Z"
+}

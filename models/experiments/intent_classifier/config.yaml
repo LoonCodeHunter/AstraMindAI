@@ -1,0 +1,4 @@
+model: intent-classifier-v1
+epochs: 5
+batch_size: 32
+learning_rate: 0.0005

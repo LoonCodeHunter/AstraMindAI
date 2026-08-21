@@ -1,0 +1,8 @@
+{
+  "title": "AstraMindAI Model Monitoring",
+  "panels": [
+    { "type": "graph", "title": "Latency P95" },
+    { "type": "graph", "title": "Toxicity Score Distribution" },
+    { "type": "graph", "title": "Intent Drift" }
+  ]
+}

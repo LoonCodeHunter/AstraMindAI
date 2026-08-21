@@ -1,0 +1,6 @@
+drift_detection:
+  enabled: true
+  thresholds:
+    embedding_drift: 0.15
+    intent_drift: 0.10
+    toxicity_drift: 0.05

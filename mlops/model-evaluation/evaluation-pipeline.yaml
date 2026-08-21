@@ -1,0 +1,7 @@
+pipeline:
+  steps:
+    - load_model
+    - load_eval_dataset
+    - run_inference
+    - compute_metrics
+    - generate_report
