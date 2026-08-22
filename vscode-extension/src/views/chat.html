@@ -4,56 +4,183 @@
   <meta charset="UTF-8" />
   <title>AstraMind Chat</title>
   <link rel="stylesheet" href="../assets/styles/chat.css" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat-header {
+      padding: 1rem;
+      background: #252526;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+
+    .chat-message {
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      max-width: 80%;
+      animation: fadeIn 0.2s ease-out;
+      white-space: pre-wrap;
+    }
+
+    .chat-message-user {
+      background: #0e639c;
+      align-self: flex-end;
+    }
+
+    .chat-message-assistant {
+      background: #3c3c3c;
+      align-self: flex-start;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-input-area {
+      padding: 1rem;
+      background: #252526;
+      border-top: 1px solid #333;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: none;
+      resize: none;
+      background: #333;
+      color: #eee;
+    }
+
+    .chat-actions button {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #0e639c;
+      color: white;
+    }
+
+    .loading {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .error-banner {
+      background: #b00020;
+      color: white;
+      padding: 0.5rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="error-banner" id="error-banner"></div>
+
   <header class="chat-header">
     <h1>AstraMind Chat</h1>
-    <span class="chat-model">Model: astramind-v2</span>
+    <span id="model-indicator">Model: astramind-v2</span>
   </header>
 
-  <main class="chat-main">
-    <section id="chat-history" class="chat-history"></section>
+  <main id="chat-main" class="chat-main"></main>
 
-    <section class="chat-input-area">
-      <textarea id="chat-input" rows="3" placeholder="Ask AstraMindAI anything..."></textarea>
-      <div class="chat-actions">
-        <button id="send-btn">Send</button>
-        <button id="clear-btn">Clear</button>
-      </div>
-    </section>
-  </main>
+  <section class="chat-input-area">
+    <textarea id="chat-input" rows="2" placeholder="Ask AstraMindAI anything..."></textarea>
+    <div class="chat-actions">
+      <button id="send-btn">Send</button>
+      <button id="clear-btn">Clear</button>
+    </div>
+  </section>
 
   <script>
     const vscode = acquireVsCodeApi();
-    const historyEl = document.getElementById("chat-history");
+    const mainEl = document.getElementById("chat-main");
     const inputEl = document.getElementById("chat-input");
     const sendBtn = document.getElementById("send-btn");
     const clearBtn = document.getElementById("clear-btn");
+    const errorBanner = document.getElementById("error-banner");
+    const modelIndicator = document.getElementById("model-indicator");
 
-    function addMessage(role, text) {
+    function addMessage(role, text, loading = false) {
       const div = document.createElement("div");
       div.className = `chat-message chat-message-${role}`;
+      if (loading) div.classList.add("loading");
       div.textContent = text;
-      historyEl.appendChild(div);
-      historyEl.scrollTop = historyEl.scrollHeight;
+      mainEl.appendChild(div);
+      mainEl.scrollTop = mainEl.scrollHeight;
+      return div;
     }
 
-    sendBtn.addEventListener("click", () => {
-      const text = inputEl.value.trim();
-      if (!text) return;
-      addMessage("user", text);
-      vscode.postMessage({ type: "chat", text });
-      inputEl.value = "";
+    function showError(msg) {
+      errorBanner.textContent = msg;
+      errorBanner.style.display = "block";
+      setTimeout(() => errorBanner.style.display = "none", 3000);
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
     });
 
+    function sendMessage() {
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      addMessage("user", text);
+      const placeholder = addMessage("assistant", "Thinking...", true);
+
+      vscode.postMessage({ type: "chat", text });
+      inputEl.value = "";
+    }
+
     clearBtn.addEventListener("click", () => {
-      historyEl.innerHTML = "";
+      mainEl.innerHTML = "";
     });
 
     window.addEventListener("message", (event) => {
       const msg = event.data;
+
       if (msg.type === "reply") {
-        addMessage("assistant", msg.text);
+        const last = mainEl.querySelector(".loading");
+        if (last) {
+          last.classList.remove("loading");
+          last.textContent = msg.text;
+        }
+      }
+
+      if (msg.type === "error") {
+        showError(msg.text);
+      }
+
+      if (msg.type === "modelChanged") {
+        modelIndicator.textContent = `Model: ${msg.model}`;
       }
     });
   </script>
