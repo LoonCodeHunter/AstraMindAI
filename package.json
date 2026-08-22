@@ -9,16 +9,16 @@
     "test": "turbo test",
     "format": "prettier --write ."
   },
-  "devDependencies": {
-    "typescript": "^5.5.0",
-    "eslint": "^9.15.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "prettier": "^3.2.0",
-    "turbo": "^2.0.0",
-    "vitest": "^2.0.0",
-    "vite": "^5.0.0",
-    "unused-imports": "0.0.1-security"
-  },
+"devDependencies": {
+  "typescript": "^5.5.0",
+  "eslint": "^9.15.0",
+  "@typescript-eslint/eslint-plugin": "^8.10.0",
+  "@typescript-eslint/parser": "^8.10.0",
+  "prettier": "^3.2.0",
+  "turbo": "^2.0.0",
+  "vitest": "^2.0.0",
+  "vite": "^5.0.0",
+  "unused-imports": "0.0.1-security"
+ },
   "packageManager": "pnpm@11.22.0"
 }
