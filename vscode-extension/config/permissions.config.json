@@ -1,0 +1,5 @@
+{
+  "allowNetwork": true,
+  "allowTelemetry": true,
+  "allowContextRead": true
+}

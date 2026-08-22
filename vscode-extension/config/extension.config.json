@@ -1,0 +1,5 @@
+{
+  "defaultModel": "astramind-v2",
+  "enableTelemetry": true,
+  "contextSync": true
+}
