@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="../assets/styles/settings.css" />
+</head>
+<body>
+  <h2>AstraMind Settings</h2>
+
+  <div class="settings">
+    <label>
+      <input type="checkbox" id="telemetry-toggle" />
+      Enable telemetry
+    </label>
+    <br />
+    <label>
+      <input type="checkbox" id="context-toggle" />
+      Enable context sync
+    </label>
+  </div>
+
+  <script>
+    const vscode = acquireVsCodeApi();
+    const telemetryEl = document.getElementById("telemetry-toggle");
+    const contextEl = document.getElementById("context-toggle");
+
+    telemetryEl.addEventListener("change", () => {
+      vscode.postMessage({ type: "settings", key: "telemetry", value: telemetryEl.checked });
+    });
+
+    contextEl.addEventListener("change", () => {
+      vscode.postMessage({ type: "settings", key: "contextSync", value: contextEl.checked });
+    });
+
+    window.addEventListener("message", (event) => {
+      const msg = event.data;
+      if (msg.type === "settings") {
+        telemetryEl.checked = !!msg.telemetry;
+        contextEl.checked = !!msg.contextSync;
+      }
+    });
+
+    vscode.postMessage({ type: "requestSettings" });
+  </script>
+</body>
+</html>

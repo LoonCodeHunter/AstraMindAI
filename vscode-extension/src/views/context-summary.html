@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Context Summary</title>
+  <link rel="stylesheet" href="../assets/styles/context-summary.css" />
+</head>
+<body>
+  <h2>Workspace Context Summary</h2>
+  <div id="context-summary" class="summary"></div>
+
+  <script>
+    const vscode = acquireVsCodeApi();
+    const summaryEl = document.getElementById("context-summary");
+
+    window.addEventListener("message", (event) => {
+      const msg = event.data;
+      if (msg.type === "context") {
+        summaryEl.textContent = `File: ${msg.fileName} | Language: ${msg.language}`;
+      }
+    });
+
+    vscode.postMessage({ type: "requestContext" });
+  </script>
+</body>
+</html>

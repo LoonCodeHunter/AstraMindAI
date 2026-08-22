@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Model Selector</title>
+  <link rel="stylesheet" href="../assets/styles/model-selector.css" />
+</head>
+<body>
+  <h2>Select Model</h2>
+  <ul id="model-list"></ul>
+
+  <script>
+    const vscode = acquireVsCodeApi();
+    const listEl = document.getElementById("model-list");
+
+    function render(models, current) {
+      listEl.innerHTML = "";
+      models.forEach((m) => {
+        const li = document.createElement("li");
+        li.className = "model-option";
+        li.textContent = m;
+        if (m === current) li.classList.add("model-option-active");
+        li.addEventListener("click", () => {
+          vscode.postMessage({ type: "switchModel", model: m });
+        });
+        listEl.appendChild(li);
+      });
+    }
+
+    window.addEventListener("message", (event) => {
+      const msg = event.data;
+      if (msg.type === "models") {
+        render(msg.models, msg.current);
+      }
+    });
+
+    vscode.postMessage({ type: "requestModels" });
+  </script>
+</body>
+</html>

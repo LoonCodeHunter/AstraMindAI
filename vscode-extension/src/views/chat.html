@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AstraMind Chat</title>
+  <link rel="stylesheet" href="../assets/styles/chat.css" />
+</head>
+<body>
+  <header class="chat-header">
+    <h1>AstraMind Chat</h1>
+    <span class="chat-model">Model: astramind-v2</span>
+  </header>
+
+  <main class="chat-main">
+    <section id="chat-history" class="chat-history"></section>
+
+    <section class="chat-input-area">
+      <textarea id="chat-input" rows="3" placeholder="Ask AstraMindAI anything..."></textarea>
+      <div class="chat-actions">
+        <button id="send-btn">Send</button>
+        <button id="clear-btn">Clear</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const vscode = acquireVsCodeApi();
+    const historyEl = document.getElementById("chat-history");
+    const inputEl = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("send-btn");
+    const clearBtn = document.getElementById("clear-btn");
+
+    function addMessage(role, text) {
+      const div = document.createElement("div");
+      div.className = `chat-message chat-message-${role}`;
+      div.textContent = text;
+      historyEl.appendChild(div);
+      historyEl.scrollTop = historyEl.scrollHeight;
+    }
+
+    sendBtn.addEventListener("click", () => {
+      const text = inputEl.value.trim();
+      if (!text) return;
+      addMessage("user", text);
+      vscode.postMessage({ type: "chat", text });
+      inputEl.value = "";
+    });
+
+    clearBtn.addEventListener("click", () => {
+      historyEl.innerHTML = "";
+    });
+
+    window.addEventListener("message", (event) => {
+      const msg = event.data;
+      if (msg.type === "reply") {
+        addMessage("assistant", msg.text);
+      }
+    });
+  </script>
+</body>
+</html>
