@@ -5,10 +5,13 @@
   "version": "1.0.0",
   "publisher": "astramind",
   "private": true,
+
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.80.0"
   },
-  "categories": ["AI", "Productivity", "Development", "Machine Learning"],
+
+  "categories": ["AI", "Productivity", "Development"],
+
   "activationEvents": [
     "onCommand:astramind.chat",
     "onCommand:astramind.explainCode",
@@ -17,7 +20,9 @@
     "onCommand:astramind.switchModel",
     "onView:astramind.chatView"
   ],
+
   "main": "./dist/extension.js",
+
   "contributes": {
     "commands": [
       { "command": "astramind.chat", "title": "AstraMind: Chat" },
@@ -35,6 +40,7 @@
       ]
     }
   },
+
   "scripts": {
     "dev": "ts-node src/extension.ts",
     "build": "tsc -p tsconfig.json",
@@ -43,13 +49,14 @@
     "package": "vsce package",
     "typecheck": "tsc --noEmit"
   },
+
   "dependencies": {
-    "vscode": "^1.89.0",
     "axios": "^1.7.7"
   },
+
   "devDependencies": {
     "typescript": "^5.6.3",
-    "@types/vscode": "^1.89.0",
+    "@types/vscode": "^1.80.0",
     "eslint": "^9.15.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
