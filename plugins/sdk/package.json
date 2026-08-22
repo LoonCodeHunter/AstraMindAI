@@ -1,9 +1,10 @@
 {
-  "name": "@astramind/sdk",
+  "name": "@astramind/plugin-sdk",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src --ext .ts",
@@ -11,10 +12,12 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist node_modules"
   },
+
   "dependencies": {
-    "axios": "^1.7.7",
+    "eventemitter3": "^5.0.1",
     "zod": "^3.23.8"
   },
+
   "devDependencies": {
     "typescript": "^5.6.3",
     "ts-node": "^10.9.2",
