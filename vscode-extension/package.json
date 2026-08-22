@@ -1,0 +1,36 @@
+{
+  "name": "astramind-vscode",
+  "displayName": "AstraMindAI",
+  "description": "AI assistant integrated into VS Code.",
+  "version": "1.0.0",
+  "publisher": "astramind",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onCommand:astramind.chat",
+    "onCommand:astramind.explainCode",
+    "onCommand:astramind.generateDocs",
+    "onCommand:astramind.refactor",
+    "onCommand:astramind.switchModel",
+    "onView:astramind.chatView"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "astramind.chat", "title": "AstraMind: Chat" },
+      { "command": "astramind.explainCode", "title": "AstraMind: Explain Code" },
+      { "command": "astramind.generateDocs", "title": "AstraMind: Generate Docs" },
+      { "command": "astramind.refactor", "title": "AstraMind: Refactor Code" },
+      { "command": "astramind.switchModel", "title": "AstraMind: Switch Model" }
+    ],
+    "views": {
+      "astramind": [
+        {
+          "id": "astramind.chatView",
+          "name": "AstraMind Chat"
+        }
+      ]
+    }
+  }
+}
