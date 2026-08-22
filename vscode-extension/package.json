@@ -4,9 +4,11 @@
   "description": "AI assistant integrated into VS Code.",
   "version": "1.0.0",
   "publisher": "astramind",
+  "private": true,
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.92.0"
   },
+  "categories": ["AI", "Productivity", "Development"],
   "activationEvents": [
     "onCommand:astramind.chat",
     "onCommand:astramind.explainCode",
@@ -32,5 +34,28 @@
         }
       ]
     }
+  },
+  "scripts": {
+    "dev": "ts-node src/extension.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "package": "vsce package",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "vscode": "^1.92.0",
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/vscode": "^1.92.0",
+    "eslint": "^9.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "vitest": "^2.1.0",
+    "vsce": "^3.0.0"
   }
 }
