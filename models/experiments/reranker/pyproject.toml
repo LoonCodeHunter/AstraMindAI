@@ -1,0 +1,19 @@
+[project]
+name = "astramind-experiment"
+version = "1.0.0"
+description = "Model training and evaluation experiment"
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "torch",
+    "transformers",
+    "datasets",
+    "tqdm",
+    "pyyaml",
+    "sentencepiece",
+    "evaluate",
+    "accelerate"
+]

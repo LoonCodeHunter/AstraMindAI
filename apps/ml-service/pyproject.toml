@@ -1,12 +1,25 @@
+
 [project]
 name = "astramind-ml-service"
 version = "1.0.0"
-requires-python = ">=3.11"
+description = "ML inference service for AstraMindAI"
+requires-python = ">=3.10"
+
 dependencies = [
-  "fastapi",
-  "uvicorn[standard]",
-  "pydantic",
-  "numpy",
-  "torch",
-  "scikit-learn"
+    "fastapi",
+    "uvicorn",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "torch",
+    "transformers",
+    "sentencepiece",
+    "tqdm",
+    "pyyaml",
+    "accelerate",
+    "evaluate",
+    "python-multipart"
 ]
+
+[tool.setuptools]
+packages = ["src"]
