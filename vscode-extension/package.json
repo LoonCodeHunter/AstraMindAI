@@ -10,7 +10,7 @@
     "vscode": "^1.80.0"
   },
 
-  "categories": ["AI", "Productivity", "Development"],
+  "categories": ["AI", "Productivity", "Development", "Machine Learning"],
 
   "activationEvents": [
     "onCommand:astramind.chat",
