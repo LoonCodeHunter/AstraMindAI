@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "typescript": "^5.5.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.15.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "prettier": "^3.2.0",
@@ -20,5 +20,5 @@
     "vite": "^5.0.0",
     "unused-imports": "0.0.1-security"
   },
-  "packageManager": "pnpm@9.0.0"
+  "packageManager": "pnpm@11.22.0"
 }

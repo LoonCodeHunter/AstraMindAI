@@ -4,3 +4,7 @@ packages:
   - "apps/ml-service"
   - "apps/worker"
   - "common"
+allowBuilds:
+  '@prisma/client': set this to true or false
+  esbuild: set this to true or false
+  msgpackr-extract: set this to true or false
