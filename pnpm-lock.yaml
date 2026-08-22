@@ -32,6 +32,9 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^4.6.0
         version: 4.6.2(eslint@9.39.5(supports-color@7.2.0))
+      flag:
+        specifier: ^5.0.1
+        version: 5.0.1(react@18.3.1)
       prettier:
         specifier: ^3.2.5
         version: 3.9.6
@@ -50,6 +53,9 @@ importers:
       vitest:
         specifier: ^2.1.0
         version: 2.1.9(@types/node@26.2.0)(supports-color@7.2.0)
+      vsce:
+        specifier: ^2.15.0
+        version: 2.15.0
 
   apps/backend:
     dependencies:
@@ -1383,6 +1389,9 @@ packages:
     resolution: {integrity: sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA==}
     engines: {node: '>= 0.4'}
 
+  async-ref@0.1.6:
+    resolution: {integrity: sha512-gIvfC7ahv452pM+nwnxZJd/vhUh8UFMrd1DCvIvWjoy9WrRmYroXTTDxwg91oiD+4CqQKrg+11uCxZrzat4UvQ==}
+
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
@@ -1954,6 +1963,11 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
+
+  flag@5.0.1:
+    resolution: {integrity: sha512-4P/rvPGKcFBneboyYHMOKbKaJL5ZhNjScbY7bGToas7FgBvrTWbh76yxRaoSoFe3HSjWc6IJ0EajUwSadcP6Lg==}
+    peerDependencies:
+      react: ^18
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -3673,14 +3687,12 @@ snapshots:
     dependencies:
       undici-types: 8.3.0
 
-  '@types/prop-types@15.7.15':
-    optional: true
+  '@types/prop-types@15.7.15': {}
 
   '@types/react@18.3.31':
     dependencies:
       '@types/prop-types': 15.7.15
       csstype: 3.2.3
-    optional: true
 
   '@types/vscode@1.134.0': {}
 
@@ -4028,6 +4040,8 @@ snapshots:
 
   async-function@1.0.0: {}
 
+  async-ref@0.1.6: {}
+
   asynckit@0.4.0: {}
 
   available-typed-arrays@1.0.7:
@@ -4265,8 +4279,7 @@ snapshots:
 
   css-what@6.2.2: {}
 
-  csstype@3.2.3:
-    optional: true
+  csstype@3.2.3: {}
 
   damerau-levenshtein@1.0.8: {}
 
@@ -4835,6 +4848,12 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  flag@5.0.1(react@18.3.1):
+    dependencies:
+      '@types/react': 18.3.31
+      async-ref: 0.1.6
+      react: 18.3.1
 
   flat-cache@4.0.1:
     dependencies:
