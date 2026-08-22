@@ -510,6 +510,40 @@ importers:
         specifier: ^2.1.0
         version: 2.1.9(@types/node@26.2.0)(supports-color@7.2.0)
 
+  plugins/sdk:
+    dependencies:
+      eventemitter3:
+        specifier: ^5.0.1
+        version: 5.0.4
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.10.0
+        version: 8.67.0(@typescript-eslint/parser@8.67.0(eslint@9.39.5(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.10.0
+        version: 8.67.0(eslint@9.39.5(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      eslint:
+        specifier: ^9.15.0
+        version: 9.39.5(supports-color@7.2.0)
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.2(eslint@9.39.5(supports-color@7.2.0))
+      prettier:
+        specifier: ^3.2.5
+        version: 3.9.6
+      ts-node:
+        specifier: ^10.9.2
+        version: 10.9.2(@swc/core@1.16.1)(@types/node@26.2.0)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@26.2.0)(supports-color@7.2.0)
+
   vscode-extension:
     dependencies:
       axios:
@@ -1868,6 +1902,9 @@ packages:
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
+
+  eventemitter3@5.0.4:
+    resolution: {integrity: sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==}
 
   expand-template@2.0.3:
     resolution: {integrity: sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==}
@@ -4717,6 +4754,8 @@ snapshots:
   etag@1.8.1: {}
 
   event-target-shim@5.0.1: {}
+
+  eventemitter3@5.0.4: {}
 
   expand-template@2.0.3: {}
 
