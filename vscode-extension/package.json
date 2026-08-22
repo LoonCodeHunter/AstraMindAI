@@ -8,7 +8,7 @@
   "engines": {
     "vscode": "^1.92.0"
   },
-  "categories": ["AI", "Productivity", "Development"],
+  "categories": ["AI", "Productivity", "Development", "Machine Learning"],
   "activationEvents": [
     "onCommand:astramind.chat",
     "onCommand:astramind.explainCode",
