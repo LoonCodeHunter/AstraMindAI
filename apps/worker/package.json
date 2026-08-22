@@ -1,14 +1,26 @@
 {
   "name": "astramind-worker",
+  "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "bull": "^4.0.0"
+    "bullmq": "^5.12.0",
+    "redis": "^4.6.13",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "typescript": "^5.5.0"
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "eslint": "^9.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
+    "vitest": "^2.1.0"
   }
 }

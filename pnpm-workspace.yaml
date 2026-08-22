@@ -1,9 +1,9 @@
 packages:
-  - "apps/backend"
-  - "apps/frontend"
-  - "apps/ml-service"
-  - "apps/worker"
-  - "common"
+  - "apps/*"
+  - "packages/*"
+  - "plugins/*/*"
+  - "devtools/*"
+  - "vscode-extension"
 allowBuilds:
   '@prisma/client': true
   esbuild: true

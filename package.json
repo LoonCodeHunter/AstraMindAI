@@ -2,23 +2,40 @@
   "name": "astramindai-monorepo",
   "private": true,
   "version": "1.0.0",
+  "description": "AstraMindAI – full-stack AI platform with backend, frontend, worker, ML service, plugins, and VS Code extension.",
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "turbo lint",
-    "test": "turbo test",
-    "format": "prettier --write ."
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build --parallel",
+    "lint": "turbo run lint --parallel",
+    "test": "turbo run test --parallel",
+    "typecheck": "turbo run typecheck --parallel",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "clean": "pnpm -r exec rm -rf node_modules dist .turbo",
+    "install:all": "pnpm install && pnpm -r install",
+    "update:all": "pnpm -r update --latest",
+    "approve-builds": "pnpm approve-builds"
   },
-"devDependencies": {
-  "typescript": "^5.6.3",
-  "eslint": "^9.15.0",
-  "@typescript-eslint/eslint-plugin": "^8.10.0",
-  "@typescript-eslint/parser": "^8.10.0",
-  "prettier": "^3.2.5",
-  "turbo": "^2.1.0",
-  "vitest": "^2.1.0",
-  "vite": "^5.2.0",
-  "unused-imports": "0.0.1-security"
- },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "eslint": "^9.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier": "^3.2.5",
+    "turbo": "^2.1.0",
+    "vitest": "^2.1.0",
+    "vite": "^5.2.0",
+    "unused-imports": "0.0.1-security"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
   "packageManager": "pnpm@11.22.0"
 }
