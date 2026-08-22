@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
   <title>Context Summary</title>
   <link rel="stylesheet" href="../assets/styles/context-summary.css" />
 </head>
+
 <body>
   <h2>Workspace Context Summary</h2>
-  <div id="context-summary" class="summary"></div>
+  <div id="summary" class="summary">Loading...</div>
 
   <script>
     const vscode = acquireVsCodeApi();
-    const summaryEl = document.getElementById("context-summary");
+    const summaryEl = document.getElementById("summary");
+
+    function updateSummary(data) {
+      summaryEl.innerHTML = `
+        <strong>File:</strong> ${data.fileName}<br>
+        <strong>Language:</strong> ${data.language}<br>
+        <strong>Selected Text:</strong> ${data.selection || "(none)"}
+      `;
+    }
 
     window.addEventListener("message", (event) => {
       const msg = event.data;
-      if (msg.type === "context") {
-        summaryEl.textContent = `File: ${msg.fileName} | Language: ${msg.language}`;
-      }
+      if (msg.type === "context") updateSummary(msg);
     });
 
     vscode.postMessage({ type: "requestContext" });

@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
   <title>Settings</title>
   <link rel="stylesheet" href="../assets/styles/settings.css" />
 </head>
+
 <body>
   <h2>AstraMind Settings</h2>
 
   <div class="settings">
     <label>
-      <input type="checkbox" id="telemetry-toggle" />
+      <input type="checkbox" id="telemetry" />
       Enable telemetry
     </label>
-    <br />
+
     <label>
-      <input type="checkbox" id="context-toggle" />
+      <input type="checkbox" id="contextSync" />
       Enable context sync
     </label>
   </div>
 
   <script>
     const vscode = acquireVsCodeApi();
-    const telemetryEl = document.getElementById("telemetry-toggle");
-    const contextEl = document.getElementById("context-toggle");
+    const tele = document.getElementById("telemetry");
+    const ctx = document.getElementById("contextSync");
 
-    telemetryEl.addEventListener("change", () => {
-      vscode.postMessage({ type: "settings", key: "telemetry", value: telemetryEl.checked });
-    });
+    tele.onchange = () =>
+      vscode.postMessage({ type: "settings", key: "telemetry", value: tele.checked });
 
-    contextEl.addEventListener("change", () => {
-      vscode.postMessage({ type: "settings", key: "contextSync", value: contextEl.checked });
-    });
+    ctx.onchange = () =>
+      vscode.postMessage({ type: "settings", key: "contextSync", value: ctx.checked });
 
     window.addEventListener("message", (event) => {
-      const msg = event.data;
-      if (msg.type === "settings") {
-        telemetryEl.checked = !!msg.telemetry;
-        contextEl.checked = !!msg.contextSync;
+      if (event.data.type === "settings") {
+        tele.checked = event.data.telemetry;
+        ctx.checked = event.data.contextSync;
       }
     });
 

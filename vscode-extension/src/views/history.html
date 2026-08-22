@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <title>Context Summary</title>
-  <link rel="stylesheet" href="../assets/styles/context-summary.css" />
+  <title>History</title>
+  <link rel="stylesheet" href="../assets/styles/history.css" />
 </head>
+
 <body>
-  <h2>Workspace Context Summary</h2>
-  <div id="context-summary" class="summary"></div>
+  <h2>Chat History</h2>
+  <ul id="history"></ul>
 
   <script>
     const vscode = acquireVsCodeApi();
-    const summaryEl = document.getElementById("context-summary");
+    const list = document.getElementById("history");
+
+    function render(items) {
+      list.innerHTML = "";
+      items.forEach((i) => {
+        const li = document.createElement("li");
+        li.className = "history-item";
+        li.textContent = `${i.timestamp} — ${i.preview}`;
+        list.appendChild(li);
+      });
+    }
 
     window.addEventListener("message", (event) => {
-      const msg = event.data;
-      if (msg.type === "context") {
-        summaryEl.textContent = `File: ${msg.fileName} | Language: ${msg.language}`;
+      if (event.data.type === "history") {
+        render(event.data.items);
       }
     });
 
-    vscode.postMessage({ type: "requestContext" });
+    vscode.postMessage({ type: "requestHistory" });
   </script>
 </body>
 </html>

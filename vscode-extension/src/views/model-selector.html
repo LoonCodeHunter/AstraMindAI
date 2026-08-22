@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
   <title>Model Selector</title>
   <link rel="stylesheet" href="../assets/styles/model-selector.css" />
 </head>
+
 <body>
   <h2>Select Model</h2>
-  <ul id="model-list"></ul>
+  <ul id="models"></ul>
 
   <script>
     const vscode = acquireVsCodeApi();
-    const listEl = document.getElementById("model-list");
+    const list = document.getElementById("models");
 
     function render(models, current) {
-      listEl.innerHTML = "";
+      list.innerHTML = "";
       models.forEach((m) => {
         const li = document.createElement("li");
         li.className = "model-option";
-        li.textContent = m;
         if (m === current) li.classList.add("model-option-active");
-        li.addEventListener("click", () => {
-          vscode.postMessage({ type: "switchModel", model: m });
-        });
-        listEl.appendChild(li);
+        li.textContent = m;
+        li.onclick = () => vscode.postMessage({ type: "switchModel", model: m });
+        list.appendChild(li);
       });
     }
 
     window.addEventListener("message", (event) => {
-      const msg = event.data;
-      if (msg.type === "models") {
-        render(msg.models, msg.current);
+      if (event.data.type === "models") {
+        render(event.data.models, event.data.current);
       }
     });
 
