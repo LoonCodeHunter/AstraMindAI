@@ -1,5 +1,16 @@
 {
-  "name": "astra-theme-packs",
+  "name": "@astramind/theme-packs",
   "version": "1.0.0",
-  "main": "dist/index.js"
+  "private": true,
+
+  "scripts": {
+    "build": "echo 'CSS themes do not need building'",
+    "lint": "echo 'No linting required for CSS themes'"
+  },
+
+  "dependencies": {},
+
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
 }
