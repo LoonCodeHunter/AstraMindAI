@@ -7,7 +7,7 @@
   "private": true,
 
   "engines": {
-    "vscode": "^1.1.37"
+    "vscode": "^1.80.0"
   },
 
   "categories": ["AI", "Productivity", "Development", "Machine Learning"],
@@ -24,13 +24,15 @@
   "main": "./dist/extension.js",
 
   "contributes": {
-    "commands": [
-      { "command": "astramind.chat", "title": "AstraMind: Chat" },
-      { "command": "astramind.explainCode", "title": "AstraMind: Explain Code" },
-      { "command": "astramind.generateDocs", "title": "AstraMind: Generate Docs" },
-      { "command": "astramind.refactor", "title": "AstraMind: Refactor Code" },
-      { "command": "astramind.switchModel", "title": "AstraMind: Switch Model" }
-    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "astramind",
+          "title": "AstraMind",
+          "icon": "media/icon.png"
+        }
+      ]
+    },
     "views": {
       "astramind": [
         {
@@ -38,11 +40,17 @@
           "name": "AstraMind Chat"
         }
       ]
-    }
+    },
+    "commands": [
+      { "command": "astramind.chat", "title": "AstraMind: Chat" },
+      { "command": "astramind.explainCode", "title": "AstraMind: Explain Code" },
+      { "command": "astramind.generateDocs", "title": "AstraMind: Generate Docs" },
+      { "command": "astramind.refactor", "title": "AstraMind: Refactor Code" },
+      { "command": "astramind.switchModel", "title": "AstraMind: Switch Model" }
+    ]
   },
 
   "scripts": {
-    "dev": "ts-node src/extension.ts",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src --ext .ts",
     "test": "vitest",
@@ -56,7 +64,9 @@
 
   "devDependencies": {
     "typescript": "^5.6.3",
-    "@types/vscode": "^1.1.37",
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.0.0",
+    "vscode": "^1.80.0",
     "eslint": "^9.15.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
