@@ -1,5 +1,9 @@
 # 📘 AstraMindAI 
 
+# [Still in Production in Sadly.]
+**Almost done just need to fix some files and wire some of the stuff so it work + needs to get pngs and wriet svgs.
+Also this README.md is still in work and looks untidy**
+
 > Intelligent AI Infrastructure • Multi‑Agent • RAG • MLOps • VS Code Extension • Cloud‑Native
 
 ![Version v1.0.0](https://img.shields.io/badge/AstraMindAI-v1.0.0-blue?style=for-the-badge)
