@@ -3,7 +3,7 @@
   "displayName": "AstraMindAI",
   "description": "AI assistant integrated into VS Code.",
   "version": "1.0.0",
-  "publisher": "astramind",
+  "publisher": "LoonCodeHunter",
   "private": true,
 
   "engines": {
