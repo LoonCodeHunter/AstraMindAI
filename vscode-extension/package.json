@@ -7,7 +7,7 @@
   "private": true,
 
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.1.37"
   },
 
   "categories": ["AI", "Productivity", "Development", "Machine Learning"],
