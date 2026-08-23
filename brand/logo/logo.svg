@@ -69,10 +69,14 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_5"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_5" result="shape"/>
 </filter>
+
+<!-- ⭐ ONLY THIS PART CHANGED ⭐ -->
 <linearGradient id="paint0_linear_3_5" x1="0" y1="0" x2="192" y2="0" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0D1117"/>
-<stop offset="1" stop-color="#0F0C1E"/>
+<stop stop-color="#F8FAFC"/>
+<stop offset="1" stop-color="#E2E8F0"/>
 </linearGradient>
+<!-- ⭐ END OF CHANGE ⭐ -->
+
 <radialGradient id="paint1_radial_3_5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(95.5 95.5) scale(77.5)">
 <stop stop-color="#8B5CF6" stop-opacity="0.25"/>
 <stop offset="0.55" stop-color="#38BDF8" stop-opacity="0.08"/>
