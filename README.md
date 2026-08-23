@@ -334,7 +334,7 @@ vsce publish
 
 # Why pnpm over npm and yarn
 
-![pnpm better](assets/changetopnpm.png)
+![pnpm better](assets/changetopnpm.webp)
 
 - pnpm is 2x faster than npm and yarn
 - pnpm doesnt cause duplicate files/folders
