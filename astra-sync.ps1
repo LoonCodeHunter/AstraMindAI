@@ -1,6 +1,6 @@
 param(
     [string]$RepoPath = "C:\Users\jesse\HyperbyteInnovations\Projects\AstraMindAI",
-    [int]$IntervalSeconds = 30
+    [int]$IntervalSeconds = 15
 )
 
 Write-Host "AstraMindAI auto-sync starting..." -ForegroundColor Cyan
