@@ -1,7 +1,7 @@
 # 📘 AstraMindAI 
 
 # [Still in Production in Sadly.]
-**Almost done just need to fix some files and wire some of the stuff so it work + needs to get pngs and wriet svgs.
+**Almost done just need to fix some files and wire some of the stuff so it work + needs to get pngs and write svgs.
 Also this README.md is still in work and looks untidy. **
 - Good News though: I`ll be releasing v1.0.0 of AstraMindAi soon to [https://marketplace.visualstudio.com/VSCode] and put up the release v1.0.0 up on [https://github.com/LoonCodeHunter/AstraMindAI/releases]
 
