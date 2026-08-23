@@ -330,6 +330,14 @@ vsce package
 ```bash
 vsce publish
 ```
+**OutDated**
+
+# Why pnpm over npm and yarn
+
+![pnpm better](assets/changetopnpm.png)
+
+- pnpm is 2x faster than npm and yarn
+- pnpm doesnt cause duplicate files/folders
 
 ## 🧩 Contributing
 Fork the repo
