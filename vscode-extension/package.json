@@ -4,7 +4,7 @@
   "description": "AI assistant integrated into VS Code.",
   "version": "1.0.0",
   "publisher": "LoonCodeHunter",
-  "private": true,
+  "private": false,
   "engines": {
     "vscode": "^1.1.37"
   },
