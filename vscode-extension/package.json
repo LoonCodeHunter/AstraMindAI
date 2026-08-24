@@ -34,7 +34,7 @@
         {
           "id": "astramind",
           "title": "AstraMind",
-          "icon": "media/icon.png"
+          "icon": "src/assets/icon.svg"
         }
       ]
     },
