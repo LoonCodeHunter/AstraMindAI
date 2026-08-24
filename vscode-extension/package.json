@@ -7,12 +7,11 @@
   "private": false,
 
   "engines": {
-    "vscode": "^1.1.37"
+    "vscode": "^1.9.0"
   },
 
   "categories": [
     "AI",
-    "Productivity",
     "Development",
     "Machine Learning"
   ],
@@ -72,7 +71,7 @@
 
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/vscode": "^1.1.37",
+    "@types/vscode": "^1.9.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
     "esbuild": "^0.28.2",
@@ -81,6 +80,6 @@
     "prettier": "^3.2.5",
     "typescript": "^5.6.3",
     "vitest": "^2.1.0",
-    "vsce": "^2.15.0"
+    "vsce": "^3.9.2"
   }
 }
