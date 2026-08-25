@@ -12,9 +12,10 @@
 
   "categories": [
     "AI",
-    "Development",
+    "Chat",
     "Machine Learning",
-    "Other"
+    "Programming Languages",
+    "Testing"
   ],
 
   "activationEvents": [
