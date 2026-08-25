@@ -33,11 +33,14 @@
     "unused-imports": "0.0.1-security",
     "vite": "^8.2.2",
     "vitest": "^4.1.11",
-    "vsce": "^2.15.0"
+    "vsce": "^1.25.1"
   },
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
   },
-  "packageManager": "pnpm@11.22.0"
+  "packageManager": "pnpm@11.22.0",
+  "dependencies": {
+    "all": "^0.0.0"
+  }
 }
